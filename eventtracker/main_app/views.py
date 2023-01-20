@@ -4,6 +4,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 
+def home(request):
+  return render(request, 'home.html')
 
 def signup(request):
   error_message = ''
@@ -19,7 +21,7 @@ def signup(request):
   context = {'form': form, 'error_message': error_message}
   return render(request, 'registration/signup.html', context)
 
-
+  
 @login_required
 def test(request):
     pass
